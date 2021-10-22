@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" async></script>
+    <title>Mix or Match</title>
+</head>
+<body>
+    <label class="mute-checkbox">Mute Music
+        <input type="checkbox" id="mute">
+        <span class="checkmark "></span>
+      </label>
+
+        <h1 class="title">
+                Mix-or-Match
+        </h1>
+         
+        <div class="overlay-text visible">
+            Click to Start
+        </div>
+        <div class="overlay-text" id="game-over-text">
+           GAME OVER
+           <span class="overlay-text-small">Click to Restart</span>
+        </div>
+        <div class="overlay-text" id="victory-text">
+            VICTORY
+            <span class="overlay-text-small">Click to Restart</span>
+         </div>
+       <div class="game-container">
+           <div class="game-info-container">
+              
+               
+            <div class="game-info">
+                Time <span id="time-remaining">100</span></div>
+            <div class="game-info">
+                Flips <span id="flips">0</span></div>
+           </div>
+           
+               
+          
+           <div class="card">
+               <div class="card-back card-face hover-shine">
+                   <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>    
+               </div>
+               <div class="card-front card-face ">
+                <img class="card-value" src="Assets/Images/Archer.png">
+               </div>
+           </div>
+           <div class="card">
+               <div class="card-back card-face hover-shine">
+                    <figure><img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+               </div>
+               <div class="card-front card-face">
+                <img class="card-value" src="Assets/Images/Archer.png">
+               </div>
+           </div>
+           <div class="card">
+            <div class="card-back card-face hover-shine">
+                <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+            </div>
+               <div class="card-front card-face">               
+                <img class="card-value" src="Assets/Images/Wizard.png">
+               </div>
+           </div>
+           <div class="card">
+            <div class="card-back card-face hover-shine">
+                <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>    
+            </div>
+               <div class="card-front card-face">
+                <img class="card-value" src="Assets/Images/Wizard.png">
+               </div>
+           </div>
+           <div class="card">
+            <div class="card-back card-face hover-shine">
+                <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+            </div>
+               <div class="card-front card-face">
+                <img class="card-value" src="Assets/Images/FemWizard.png">
+               </div>
+           </div>
+           <div class="card">
+            <div class="card-back card-face hover-shine">
+                <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+            </div>
+               <div class="card-front card-face">
+                <img class="card-value" src="Assets/Images/FemWizard.png">
+               </div>
+           </div>
+           <div class="card">
+            <div class="card-back card-face hover-shine">
+                <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+            </div>
+            <div class="card-front card-face">
+             <img class="card-value" src="Assets/Images/Fighter.png">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-back card-face hover-shine">
+                <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+            </div>
+            <div class="card-front card-face">
+             <img class="card-value" src="Assets/Images/Fighter.png">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-back card-face hover-shine">
+                <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+            </div>
+            <div class="card-front card-face">
+             <img class="card-value" src="Assets/Images/Cleric.png">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-back card-face hover-shine">
+                <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+            </div>
+            <div class="card-front card-face">
+             <img class="card-value" src="Assets/Images/Cleric.png">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-back card-face hover-shine">
+                <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+            </div>
+            <div class="card-front card-face">
+             <img class="card-value" src="Assets/Images/Rouge.png">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-back card-face hover-shine">
+                <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+            </div>
+            <div class="card-front card-face">
+             <img class="card-value" src="Assets/Images/Rouge.png">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-back card-face hover-shine">
+                <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+            </div>
+            <div class="card-front card-face">
+             <img class="card-value" src="Assets/Images/Paladin.png">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-back card-face hover-shine">
+                <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+            </div>
+            <div class="card-front card-face">
+             <img class="card-value" src="Assets/Images/Paladin.png">
+            </div>
+        </div>
+        <div class="card">
+         <div class="card-back card-face hover-shine">
+            <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+         </div>
+         <div class="card-front card-face">
+          <img class="card-value" src="Assets/Images/MaleArcher.png">
+         </div>
+     </div>
+     <div class="card">
+        <div class="card-back card-face hover-shine">
+            <figure> <img class="back-card-face " src="Assets/Images/cards_back.jpg"></figure>
+        </div>
+         <div class="card-front card-face">
+          <img class="card-value" src="Assets/Images/MaleArcher.png">
+         </div>
+     </div>
+       </div>
+</body>
+</html>

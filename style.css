@@ -1,0 +1,255 @@
+
+@font-face {
+    font-family: "FantaisieArtistique";
+    src: url("Assets/Fonts/FantaisieArtistique.otf") format("opentype"),
+     url("Assets/Fonts/FantaisieArtistique.ttf") format("truetype");
+}
+*{
+    box-sizing: border-box;
+}
+html{
+    min-height: 100vh;
+}
+body{
+    margin: 0;
+    background-image: url('Assets/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+.title{
+    color: blue;
+    font-family: FantaisieArtistique, cursive;
+    font-weight: normal;
+    text-align: center;
+    font-size: 6em;
+}
+/*Start Game, Game Over, Victory text*/
+.overlay-text{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: red;
+    font-weight: bold;
+    font-family: FantaisieArtistique;
+}
+.overlay-text-small{
+    font-size: .3em;
+}
+/*Make text visible hide text by default*/
+.overlay-text.visible{
+    display: flex;
+    flex-direction: column;
+    animation: overlay-grow 500ms forwards;
+}
+/*Animation for overlay text*/
+@keyframes overlay-grow{
+    from{
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 0;
+    }
+    to{
+        background-color: rgba(0, 0, 0, 0.8);
+        font-size: 10em;
+    }
+}
+/*Timer, flips text*/
+.game-info{
+    font-family: FantaisieArtistique, serif;
+    color: white;
+    font-size: 3em;
+}
+
+.game-info-container{
+    grid-column: 1/ -1;
+    display: flex;
+    justify-content: space-between;
+}
+.game-container{
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    grid-gap: 10px;
+    justify-content: center;
+    perspective: 500px;
+}
+/*Card class*/
+.card{
+    
+    position: relative;
+    
+    height: 185px;
+    width: 125px;
+
+}
+.card-face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden; 
+    transition: transform 500ms ease-in-out;
+}
+.card.visible .card-back{
+    transform: rotateY(-180deg);
+}
+.card.visible .card-front{
+    transform: rotateX(0);
+}
+.card-back{
+    
+    border-color: black;
+}
+.card-front{
+    background-color: #FFBB89;
+    border-color: #333;
+    transform: rotateY(180deg);
+}
+/*undo black and white effect on card when match*/
+.card-value{
+    height:  100%;
+    width: 100%;
+    filter: grayscale(100%);
+    transition: .8s ease-in-out;
+}
+.card.matched .card-value{
+    filter: grayscale(0);
+}
+.back-card-face{
+    width: 100%;
+    height: 100%;
+    align-self: flex;
+    background-color: white;
+}
+/*For smaller screen card layout*/
+@media (max-width:600px) {
+    .game-container{
+        grid-template-columns: repeat(2,auto);
+    }
+    .game-info-container{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/*Shine effect animation when select card*/
+figure {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	overflow: hidden;
+}
+.hover-shine figure {
+	position: relative;
+}
+.hover-shine figure::before {
+	position: absolute;
+	top: 0;
+	left: -135%;
+	z-index: 2;
+	display: block;
+	content: '';
+	width: 100%;
+	height: 100%;
+	background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+	background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+	-webkit-transform: skewX(-25deg);
+	transform: skewX(-25deg);
+}
+.hover-shine figure:hover::before {
+	-webkit-animation: shine .75s;
+	animation: shine .75s;
+}
+@-webkit-keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+@keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+/*Mute background music check box*/
+.mute-checkbox {
+    display: block;
+    position: relative;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: FantaisieArtistique, serif;
+    color: white;
+    font-size: 2em;
+  }
+
+  
+  /* Hide the browser's default checkbox */
+  .mute-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .mute-checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .mute-checkbox input:checked ~ .checkmark {
+    background-color: blue;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .mute-checkbox input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .mute-checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
